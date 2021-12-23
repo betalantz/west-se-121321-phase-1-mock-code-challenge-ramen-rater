@@ -5,8 +5,10 @@ const menu = document.querySelector('#ramen-menu')
 const detail = document.querySelector('#ramen-detail')
 const rating = document.querySelector('#rating-display')
 const comment = document.querySelector('#comment-display')
-// Listeners
+const newRamenForm = document.querySelector('#new-ramen')
 
+// Listeners
+newRamenForm.addEventListener('submit', handleAddRamen)
 
 // Fetchers
 function getAllRamens(){
@@ -41,6 +43,23 @@ function renderDetail(ramenObj){
 
 // Event handlers
 
+function handleAddRamen(e){
+    e.preventDefault()
+    console.log(e.target.restaurant)
+    const name = e.target.name.value
+    const restaurant = e.target.restaurant.value
+    const image = e.target.image.value
+    const rating = e.target.rating.value
+    const comment = e.target["new-comment"].value
+    const newRamen = {
+        name,
+        restaurant,
+        image,
+        rating,
+        comment
+    }
+    renderOneMenu(newRamen)
+}
 
 // Initializers
 getAllRamens()

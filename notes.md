@@ -5,7 +5,7 @@
     - [x] create img elements
     - [x] add to DOM
 - [x] Click an image and see details
-- [] Submit a form to create a new ramen in menu (no persistence)
+- [x] Submit a form to create a new ramen in menu (no persistence)
 
 ### Bonus
 - [] see details for `ramen/1` on page load

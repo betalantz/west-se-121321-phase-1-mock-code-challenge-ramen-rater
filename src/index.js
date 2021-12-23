@@ -63,6 +63,7 @@ function deleteRamen(id){
 function renderAllRamens(ramensArr){
     menu.innerHTML = ''
     ramensArr.forEach(renderOneMenu)
+    renderDetail(ramensArr[0])
 }
 
 function renderOneMenu(ramenObj){
@@ -134,15 +135,15 @@ function handleEditRating(e){
 function handleRemoveRamen(id){
     deleteRamen(id)
       .then(() => getAllRamens().then(renderAllRamens))
-    if (edit.dataset.id === id) {
-        if (id === 1) {
-            getOneRamen(id + 1).then(renderDetail)
-        } else {
-            getOneRamen(id - 1).then(renderDetail)
-        }
-    }
+    // if (edit.dataset.id == id) {
+    //     if (id == 1) {
+    //         getOneRamen(id + 1).then(renderDetail)
+    //     } else {
+    //         getOneRamen(id - 1).then(renderDetail)
+    //     }
+    // }
 }
 
 // Initializers
 getAllRamens().then(renderAllRamens)
-getOneRamen(1).then(renderDetail)
+// getOneRamen(1).then(renderDetail)

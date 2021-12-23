@@ -121,6 +121,8 @@ function handleEditRating(e){
     console.log('e: ', e.target);
     rating.textContent = newRating.value
     comment.textContent = newComment.value
+    newRating.placeholder = newRating.value
+    newComment.placeholder = newComment.value
     updateRamen({
         id: e.target.dataset.id,
         rating: newRating.value,
@@ -132,6 +134,13 @@ function handleEditRating(e){
 function handleRemoveRamen(id){
     deleteRamen(id)
       .then(() => getAllRamens().then(renderAllRamens))
+    if (edit.dataset.id === id) {
+        if (id === 1) {
+            getOneRamen(id + 1).then(renderDetail)
+        } else {
+            getOneRamen(id - 1).then(renderDetail)
+        }
+    }
 }
 
 // Initializers
